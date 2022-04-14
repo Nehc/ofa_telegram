@@ -23,8 +23,9 @@ else:
 
 if len(sys.argv)>2:
     my_chat_id = int(sys.argv[2])
-else: 
-    my_chat_id = int(os.getenv('MY_CHAT'))
+else:
+    my_chat_id = os.getenv('MY_CHAT')
+
 
 # assign directory
 new_directory = 'images/new'
@@ -157,11 +158,11 @@ def get_photo(message):
     bot.send_photo(message.chat.id, downloaded_file, 
         caption=f'На изображении <b>{translation}</b> (<i>{description}</i>).', 
         parse_mode="HTML")
-    if not message.chat.id == my_chat_id and my_chat_id:
+    if my_chat_id and not message.chat.id == int(my_chat_id):
         us_name = (message.from_user.first_name + 
             ((' '+message.from_user.last_name) if message.from_user.last_name else '') +
             ((' aka '+ message.from_user.username) if message.from_user.username else ''))
-        bot.send_photo(my_chat_id, downloaded_file,
+        bot.send_photo(int(my_chat_id), downloaded_file,
             caption=f'На изображении <b>{translation}</b> (<i>{description}</i>). От {us_name}', 
             parse_mode="HTML")
     print(description)
