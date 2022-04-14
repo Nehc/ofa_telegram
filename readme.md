@@ -63,8 +63,11 @@ res_filename = 'images/results.csv'
 
 По умолчанию это все тоже в репозитории OFA... Каталоги и csv лучше заранее создать (хз, не проверял.) 
 
+UPDATE: docker! ДЕлаем следующее:  
+
 ```bash
 git clone https://github.com/Nehc/ofa_telegram.git
 docker build --tag="nehcy/ofa" .
-docker run -it --gpus all --name ofa -v "${PWD}/images":/home/root/OFA/images nehcy/ofa 
+cd ofa_telegram
+docker run -it --gpus all --name ofa -v "${PWD}/images":/home/OFA/ofa_telegram/images -e TG_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11 
 ```
