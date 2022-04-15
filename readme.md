@@ -76,4 +76,7 @@ docker build --tag="nehcy/ofa" .
 cd ofa_telegram
 docker run --gpus all --name ofa -v "${PWD}/images":/home/OFA/ofa_telegram/images -e TG_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11 
 ```
-так будет сохранять базу картинок в каталог ofa_telegram/images. 
+так будет сохранять базу картинок в каталог ofa_telegram/images.
+
+\***-gpus all** - предполагает поддержку GPU в докер. Если этого нет - можно без этого параметра. 
+
