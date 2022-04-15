@@ -1,7 +1,10 @@
+## Интерфейс в виде телеграм-бота к инференсу OFA (https://github.com/OFA-Sys/OFA)
+
+### Пошаговая инструкция, как запустить у себя. В конце есть еще вариат с docker. 
+
 Все команды, написаные ниже, нужно вводить в терминал. Предполагается, что это терминал юниксовый, хотя за редким исключением (типа wget) будет работать и под виндой.
 
 Для начала нужно склонировать два репозитория: самой модели и библиотеки fairseq
-
 
 ```bash
 git clone https://github.com/pytorch/fairseq.git
@@ -65,7 +68,7 @@ res_filename = 'images/results.csv'
 
 По умолчанию это все тоже в репозитории OFA... Каталоги и csv лучше заранее создать (хз, не проверял.) 
 
-UPDATE: docker! Делаем следующее:  
+### UPDATE: docker! Делаем следующее:  
 
 ```bash
 git clone https://github.com/Nehc/ofa_telegram.git
@@ -73,4 +76,4 @@ docker build --tag="nehcy/ofa" .
 cd ofa_telegram
 docker run --gpus all --name ofa -v "${PWD}/images":/home/OFA/ofa_telegram/images -e TG_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11 
 ```
-так будет сохпанять базу картинок в каталогofa_telegram/images. 
+так будет сохранять базу картинок в каталог ofa_telegram/images. 
