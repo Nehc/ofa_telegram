@@ -29,6 +29,7 @@ conda activate ofa
 
 
 ```bash
+python -m pip install --upgrade pip
 pip install torch==1.8.2+cu111 torchvision==0.9.2+cu111 torchaudio===0.8.2 -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html
 ```
 
@@ -40,10 +41,11 @@ cd fairseq
 python -m pip install fairseq --use-feature=in-tree-build ./
 ```
 
-Потом все, что нужно для модели (файлик requirements.txt в этом репозитории)
+Потом все, что нужно для модели и api сервисов
 
 ```bash
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
+pip install -r OFA/requirements.txt
 ```
 
 Скрипт ofa.py кидаем в репозиторий OFA. дальше просто запускаем скрипт, в качестве параметра передаем токен бота (не забыть свой подставить!).
@@ -63,11 +65,12 @@ res_filename = 'images/results.csv'
 
 По умолчанию это все тоже в репозитории OFA... Каталоги и csv лучше заранее создать (хз, не проверял.) 
 
-UPDATE: docker! ДЕлаем следующее:  
+UPDATE: docker! Делаем следующее:  
 
 ```bash
 git clone https://github.com/Nehc/ofa_telegram.git
 docker build --tag="nehcy/ofa" .
 cd ofa_telegram
-docker run -it --gpus all --name ofa -v "${PWD}/images":/home/OFA/ofa_telegram/images -e TG_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11 
+docker run --gpus all --name ofa -v "${PWD}/images":/home/OFA/ofa_telegram/images -e TG_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11 
 ```
+так будет сохпанять базу картинок в каталогofa_telegram/images. 
