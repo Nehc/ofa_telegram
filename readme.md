@@ -35,20 +35,17 @@ conda activate ofa
 python -m pip install --upgrade pip
 pip install torch==1.8.2+cu111 torchvision==0.9.2+cu111 torchaudio===0.8.2 -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html
 ```
-
-Дальше ставим fairseq
-
-
-```bash
-cd fairseq
-python -m pip install fairseq --use-feature=in-tree-build ./
-```
-
 Потом все, что нужно для модели и api сервисов
 
 ```bash
 pip install -r requirements.txt
 pip install -r OFA/requirements.txt
+```
+Дальше ставим fairseq
+
+```bash
+cd fairseq
+python -m pip install fairseq --use-feature=in-tree-build ./
 ```
 
 Скрипт ofa.py кидаем в репозиторий OFA. дальше просто запускаем скрипт, в качестве параметра передаем токен бота (не забыть свой подставить!).
